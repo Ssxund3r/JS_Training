@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS</title>
+    <input id="password" type="password">
+    <button onclick="login()">Entrar</button><br />
+    <script type="text/javascript">
+        function login() {
+            var senha = '123';
+            var tentativa = document.getElementById("password").value;
+            if (tentativa == senha) {
+                alert("Senha correta, entrando no sistema... ");
+            } else {
+                alert("Senha " + senha + " incorreta, tente novamente...");
+            }
+        }
+    </script>
+</head>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS</title>
+    <input id="idade" type="text">
+    <button onclick="entrar()">Entrar</button><br />
+    <script type="text/javascript">
+        function entrar() {
+            var idade = parseInt(document.getElementById("idade").value);
+            if (idade < 18) {
+                alert("Voce tem " + idade + " anos, menores de idade nao podem entrar!...");
+            } else {
+                alert("Bem vindo ao site Icaro Studios!")
+            }
+        }
+    </script>
+</head>
+
+</html>

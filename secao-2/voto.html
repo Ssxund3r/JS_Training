@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS - Brincando um pouquinho</title>
+    <script type="text/javascript">
+        function verificaVoto() {
+            var idade = parseInt(document.getElementById("idade").value);
+
+            if (idade < 16) {
+                alert("Você tem menos de 16 anos. Não pode votar");
+            } else if (idade >= 16 && idade <= 17 || idade > 65) {
+                alert("Seu voto é facultativo!");
+            } else {
+                alert("Ser voto é obrigatório! ");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificação de Voto</h1>
+    <label for="idade">Digite sua idade:</label>
+    <input type="text" id="idade">
+    <button onclick="verificaVoto()">Verificar</button>
+</body>
+</html>
