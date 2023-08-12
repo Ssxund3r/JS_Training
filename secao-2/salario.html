@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Treinando JS</title>
+    <script type="text/javascript">
+        function checar() {
+            var idade = parseInt(document.getElementById("idade").value);
+            var salario = parseFloat(document.getElementById("salario").value);
+
+            if (idade > 17 && salario > 2000) {
+                alert("Voce esta apto para participar do consorcio")
+            } else {
+                alert("Voce nao esta apto para participar do consorcio")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <label for="idade">Sua Idade: </label>
+    <input id="idade" type="number">
+    <label for="salario">Seu Salario</label>
+    <input id="salario" type="number">
+    <button onclick="checar()">Checar</button>
+</body>
+
+</html>
