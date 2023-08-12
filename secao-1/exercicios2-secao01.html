@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercicios JS - Treinando um pouquinho</title>
+    <script type="text/javascript">
+        var raio = prompt("Raio do círculo: ");
+        raio = parseFloat(raio);
+
+        var comprimento = 2 * Math.PI * raio;
+        var area = Math.PI * raio * raio;
+
+        document.write("Comprimento da Circunferência = ", comprimento, "<br>");
+        document.write("Área da Circunferência = ", area, "<br>");
+
+        // VERSÃO REDUZIDA
+        document.write("Comprimento da circunferência = ", 2 * Math.PI * raio, "<br>");
+        document.write("Área da Circunferência = ", Math.PI * Math.pow(raio, 2));
+
+        // CONVERSÃO DE GRAUS FAHRENHEIT PARA CELSIUS
+        var celsius = parseFloat(prompt("Temperatura em graus Celsius: "));
+        var fahrenheit = (9 * celsius / 5) + 32 + "<br>";
+
+        document.write("Temperatura em graus Fahrenheit = ", fahrenheit);
+
+        // CONVERSÃO DE GRAUS CELSIUS PARA FAHRENHEIT
+        var fahrenheit = parseFloat(prompt("Temperatura em graus Fahrenheit: ", fahrenheit));
+        var celsius = 5 * (fahrenheit - 32) / 9 + "<br>";
+
+        document.write("Temperatura em graus Celsius = ", celsius);
+
+        //SOLUÇÃO Combustível e KM
+        var dinheiro = parseFloat(prompt("Quanto dinheiro você tem para pagar? "));
+
+        //Calcula quantos litros de combustível ele pode comprar
+        var litros = dinheiro / 5;
+
+        var quilometros = litros * 20;
+
+        document.write("Com R$ ", dinheiro.toFixed(2), " você pode compar ", litros.toFixed(2)
+            , " litros de combustível.<br>");
+        document.write("Com essa quantidade de combustível, o carro consegue andar ",
+            quilometros.toFixed(2), " quilômetros.");
+
+
+    </script>
+</head>
+
+</html>
