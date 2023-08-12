@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Comparação de Valores</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function compararValores() {
+            var valor1 = parseFloat(document.getElementById("valor1").value);
+            var valor2 = parseFloat(document.getElementById("valor2").value);
+
+            var operadores = ["!=", "==", "<", ">", "<=", ">="];
+            var resultados = {};
+
+            operadores.forEach(function (operador) {
+                resultados[operador] = "valor1 " + operador + " valor2: "
+                    + (eval("valor1 " + operador + " valor2"));
+            });
+
+            for (var operador in resultados) {
+                var resultadoItem = document.createElement("li");
+                resultadoItem.textContent = resultados[operador];
+                document.getElementById("resultado-lista").appendChild(resultadoItem);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Comparação de Valores</h1>
+    <label for="valor1">Valor 1:</label>
+    <input type="text" id="valor1"><br>
+    <label for="valor2">Valor 2:</label>
+    <input type="text" id="valor2"><br>
+    <button onclick="compararValores()">Comparar</button><br>
+    <ul id="resultado-lista"></ul>
+</body>
+
+</html>
