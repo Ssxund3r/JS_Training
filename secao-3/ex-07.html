@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Treinamento JS</title>
+    <script type="text/javascript">
+        function PA() {
+            var valor = parseInt(document.getElementById('inicial').value);
+            var razao = parseInt(document.getElementById('razao').value);
+            var termo = parseInt(document.getElementById('termo').value);
+            var pa = '';
+            for (var count = 1; count <= termo; count++) {
+                pa += "Termo " + count + " = " + valor + "<br />";
+                valor += razao;
+            }
+            document.write(pa);
+        }
+    </script>
+</head>
+
+<body>
+    Termo inicial : <input id="inicial" type="number"> <br />
+    Razão da PA : <input id="razao" type="number"> <br />
+    Mostrar até termo: <input id="termo" type="number"> <br />
+    <button onclick="PA()">Exibir</button><br />
+</body>
+
+</html>
