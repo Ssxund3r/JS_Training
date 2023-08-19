@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Promoção de Carnes - Hipermercado Tabajara</title>
+    <script>
+        function calcularCupom() {
+            var tipoCarne = document.getElementById("tipoCarne").value;
+            var quantidade = parseFloat(document.getElementById("quantidade").value);
+            var pagamento = document.getElementById("pagamento").value;
+            var precoTotal = 0;
+
+            if (tipoCarne === "fileDuplo") {
+                precoTotal = quantidade <= 5 ? quantidade * 4.9 : quantidade * 5.8;
+            } else if (tipoCarne === "alcatra") {
+                precoTotal = quantidade <= 5 ? quantidade * 5.9 : quantidade * 6.8;
+            } else if (tipoCarne === "picanha") {
+                precoTotal = quantidade <= 5 ? quantidade * 6.9 : quantidade * 7.8;
+            }
+
+            var desconto = pagamento === "cartaoTabajara" ? precoTotal * 0.05 : 0;
+            var valorAPagar = precoTotal - desconto;
+
+            // Exibir o cupom fiscal
+            document.getElementById("cupomFiscal").innerHTML =
+                "<strong>Cupom Fiscal</strong><br>" +
+                "Tipo de carne: " + tipoCarne + "<br>" +
+                "Quantidade: " + quantidade + " Kg<br>" +
+                "Preço total: R$ " + precoTotal.toFixed(2) + "<br>" +
+                "Tipo de pagamento: " + pagamento + "<br>" +
+                "Valor do desconto: R$ " + desconto.toFixed(2) + "<br>" +
+                "Valor a pagar: R$ " + valorAPagar.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Promoção de Carnes - Hipermercado Tabajara</h1>
+    <label for="tipoCarne">Tipo de carne:</label>
+    <select id="tipoCarne">
+        <option value="fileDuplo">File Duplo</option>
+        <option value="alcatra">Alcatra</option>
+        <option value="picanha">Picanha</option>
+    </select>
+    <br>
+    <label for="quantidade">Quantidade (em Kg):</label>
+    <input type="number" id="quantidade" step="0.1" min="0">
+    <br>
+    <label for="pagamento">Tipo de pagamento:</label>
+    <select id="pagamento">
+        <option value="dinheiro">Dinheiro</option>
+        <option value="cartaoTabajara">Cartão Tabajara</option>
+    </select>
+    <br>
+    <button onclick="calcularCupom()">Gerar Cupom Fiscal</button>
+    <br>
+    <br>
+    <div id="cupomFiscal"></div>
+</body>
+
+</html>

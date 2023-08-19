@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de Folha de Pagamento</title>
+  <script>
+    function calcularFolhaPagamento() {
+      // Obter os valores informados pelo usuário
+      var valorHora = parseFloat(document.getElementById("valorHora").value);
+      var horasTrabalhadas = parseFloat(document.getElementById("horasTrabalhadas").value);
+
+      // Calcular o salário bruto
+      var salarioBruto = valorHora * horasTrabalhadas;
+
+      // Definir as faixas de desconto de Imposto de Renda
+      var faixa1 = 900.00;
+      var faixa2 = 1500.00;
+      var faixa3 = 2500.00;
+
+      var percentual1 = 0;
+      var percentual2 = 5;
+      var percentual3 = 10;
+      var percentual4 = 20;
+
+      // Calcular o desconto de Imposto de Renda com base no salário bruto
+      var descontoIR;
+      if (salarioBruto <= faixa1) {
+        descontoIR = percentual1;
+      } else if (salarioBruto <= faixa2) {
+        descontoIR = percentual2;
+      } else if (salarioBruto <= faixa3) {
+        descontoIR = percentual3;
+      } else {
+        descontoIR = percentual4;
+      }
+
+      // Calcular os demais descontos e o salário líquido
+      var descontoINSS = 10;
+      var descontoSindicato = 3;
+      var percentualFGTS = 11;
+
+      var descontoIRValor = salarioBruto * (descontoIR / 100);
+      var descontoINSSValor = salarioBruto * (descontoINSS / 100);
+      var descontoSindicatoValor = salarioBruto * (descontoSindicato / 100);
+      var fgtsValor = salarioBruto * (percentualFGTS / 100);
+
+      var totalDescontos = descontoIRValor + descontoINSSValor + descontoSindicatoValor;
+      var salarioLiquido = salarioBruto - totalDescontos;
+
+      // Exibir os resultados na tela
+      document.getElementById("resultado").innerHTML = "Salário Bruto: R$ " + salarioBruto.toFixed(2) + "<br>" +
+        "(-) IR (" + descontoIR + "%): R$ " + descontoIRValor.toFixed(2) + "<br>" +
+        "(-) INSS (" + descontoINSS + "%): R$ " + descontoINSSValor.toFixed(2) + "<br>" +
+        "(-) Sindicato (" + descontoSindicato + "%): R$ " + descontoSindicatoValor.toFixed(2) + "<br>" +
+        "FGTS (" + percentualFGTS + "%): R$ " + fgtsValor.toFixed(2) + "<br>" +
+        "Total de descontos: R$ " + totalDescontos.toFixed(2) + "<br>" +
+        "Salário Líquido: R$ " + salarioLiquido.toFixed(2);
+}
+  </script>
+</head>
+<body>
+  <h1>Cálculo de Folha de Pagamento</h1>
+  <label for="valorHora">Valor da Hora:</label>
+  <input type="text" id="valorHora">
+  <br>
+  <label for="horasTrabalhadas">Horas Trabalhadas:</label>
+  <input type="text" id="horasTrabalhadas">
+  <br>
+  <button onclick="calcularFolhaPagamento()">Calcular</button>
+  <div id="resultado"></div>
+</body>
+</html>

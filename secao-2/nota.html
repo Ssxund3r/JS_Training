@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Praticando JS</title>
+    <script type="text/javascript">
+        function botaoNota() {
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+
+            var media = (nota1 + nota2) / 2;
+
+            if (media === 10) {
+                alert("Aprovado com distinção!");
+            } else if (media >= 7) {
+                alert("Aprovado");
+            } else {
+                alert("Reprovado");
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="nota1">Digite a Primeira Nota:</label>
+    <input type="number" id="nota1"><br>
+    <label for="nota2">Digite a Segunda Nota: </label>
+    <input type="number" id="nota2">
+    <button onclick="botaoNota()">OK</button>
+</body>
+</html>

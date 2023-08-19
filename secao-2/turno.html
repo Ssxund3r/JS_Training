@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS</title>
+    <script type="text/javascript">
+        function exibirMensagem() {
+            var turno = prompt("Em qual turno você estuda? \nDigite M para Matutino, V para Vespertino ou N para Noturno: ");
+
+            if (turno === "M" || turno === "m") {
+                alert("Bom dia!");
+            } else if (turno === "V" || turno === "v") {
+                alert("Boa tarde!");
+            } else if (turno === "N" || turno === "n") {
+                alert("Boa noite!");
+            } else {
+                alert("Valor inválido!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Cumprimento de acrodo com o turno</h1>
+    <button onclick="exibirMensagem()">Verificar Turno</button>
+</body>
+
+</html>

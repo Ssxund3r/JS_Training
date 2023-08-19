@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS</title>
+    <script type="text/javascript">
+        function calcularQuantidades() {
+            var numero = parseInt(document.getElementById("numero").value);
+
+            if (numero >= 1000) {
+                document.getElementById("resultado").innerHTML = "Número inválido. Digite um número menor que 1000.";
+                return;
+            }
+
+            var centenas = Math.floor(numero / 100);
+            var dezenas = Math.floor((numero % 100) / 10);
+            var unidades = numero % 10;
+
+            var resultado = "";
+            if (centenas > 0) {
+                resultado += centenas + (centenas === 1 ? " centena" : " centenas");
+            }
+
+            if (dezenas > 0) {
+                if (centenas > 0) {
+                    resultado += ", ";
+                    if (unidades === 0) {
+                        resultado += "e ";
+                    }
+                }
+                resultado += dezenas + (dezenas === 1 ? " dezena" : " dezenas");
+            }
+            if (unidades > 0) {
+                if (centenas > 0 || dezenas > 0) {
+                    resultado += " e ";
+                }
+                resultado += unidades + (unidades === 1 ? " unidade" : " unidades");
+            }
+            // Exibir o resultado
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Quantidade de Centenas, Dezenas e Unidades</h1>
+    <label for="numero">Digite um número inteiro menor que 1000:</label>
+    <input type="number" id="numero" max="999">
+    <br>
+    <button onclick="calcularQuantidades()">Calcular Quantidades</button>
+    <br>
+    <p id="resultado"></p>
+</body>
+
+</html>

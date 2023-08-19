@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculadora de Reajuste Salarial</title>
+    <script>
+        function calcularReajuste() {
+            // Obter o salário informado pelo usuário
+            var salario = parseFloat(document.getElementById("salario").value);
+
+            // Definir as faixas de reajuste e seus respectivos percentuais
+            var faixa1 = 280.00;
+            var faixa2 = 700.00;
+            var faixa3 = 1500.00;
+
+            var percentual1 = 20;
+            var percentual2 = 15;
+            var percentual3 = 10;
+            var percentual4 = 5;
+
+            // Variáveis para armazenar os resultados
+            var percentualAumento;
+            var valorAumento;
+            var novoSalario;
+
+            // Calcular o reajuste com base no salário atual
+            if (salario <= faixa1) {
+                percentualAumento = percentual1;
+            } else if (salario <= faixa2) {
+                percentualAumento = percentual2;
+            } else if (salario <= faixa3) {
+                percentualAumento = percentual3;
+            } else {
+                percentualAumento = percentual4;
+            }
+
+            valorAumento = salario * (percentualAumento / 100);
+            novoSalario = salario + valorAumento;
+
+            // Exibir os resultados na tela
+            document.getElementById("resultado").innerHTML = "Salário antes do reajuste: R$ " + salario.toFixed(2) + "<br>" +
+                "Percentual de aumento aplicado: " + percentualAumento + "%<br>" +
+                "Valor do aumento: R$ " + valorAumento.toFixed(2) + "<br>" +
+                "Novo salário após o aumento: R$ " + novoSalario.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Calculadora de Reajuste Salarial</h1>
+    <label for="salario">Salário:</label>
+    <input type="text" id="salario">
+    <button onclick="calcularReajuste()">Calcular</button>
+    <div id="resultado"></div>
+</body>
+
+</html>

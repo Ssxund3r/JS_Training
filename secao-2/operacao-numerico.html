@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Treinando JS</title>
+    <script type="text/javascript">
+        function realizarOperacao() {
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+            var operacao = document.getElementById("operacao").value;
+
+            var resultado;
+            var frase = "";
+
+            switch (operacao) {
+                case "soma":
+                    resultado = numero1 + numero2;
+                    break;
+                case "subtracao":
+                    resultado = numero1 - numero2;
+                    break;
+                case "multiplicacao":
+                    resultado = numero1 * numero2;
+                    break;
+                case "divisao":
+                    resultado = numero1 / numero2;
+                    break;
+                default:
+                    document.getElementById("resultado").innerHTML = "Operação inválida.";
+                    return;
+            }
+
+            if (resultado % 2 === 0) {
+                frase += "O resultado é par. ";
+            } else {
+                frase += "O resultado é ímpar. ";
+            }
+
+            if (resultado >= 0) {
+                frase += "O resultado é positivo. ";
+            } else {
+                frase += "O resultado é negativo. ";
+            }
+
+            if (Number.isInteger(resultado)) {
+                frase += "O resultado é um número inteiro.";
+            } else {
+                frase += "O resultado é um número decimal.";
+            }
+
+            document.getElementById("resultado").innerHTML = frase;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <label for="numero1">Digite o primeiro número:</label>
+    <input type="number" id="numero1">
+    <br>
+    <label for="numero2">Digite o segundo número:</label>
+    <input type="number" id="numero2">
+    <br>
+    <label for="operacao">Escolha a operação:</label>
+    <select id="operacao">
+        <option value="soma">Soma</option>
+        <option value="subtracao">Subtração</option>
+        <option value="multiplicacao">Multiplicação</option>
+        <option value="divisao">Divisão</option>
+    </select>
+    <br>
+    <button onclick="realizarOperacao()">Calcular</button>
+    <br>
+    <p id="resultado"></p>
+</body>
+
+</html>

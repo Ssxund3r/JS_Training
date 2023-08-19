@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Treinando JS</title>
+    <script type="text/javascript">
+        function calcularNotas() {
+            var valorSaque = parseInt(document.getElementById("valorSaque").value);
+
+            if (valorSaque < 10 || valorSaque > 600) {
+                document.getElementById("resultado").innerHTML =
+                    "Valor de saque inválido. O valor mínimo é R$10 e o máximo é R$600.";
+                return;
+            }
+
+            var notas = [100, 50, 10, 5, 1];
+            var quantidadeNotas = [];
+
+            for (var i = 0; i < notas.length; i++) {
+                var quantidade = Math.floor(valorSaque / notas[i]);
+                valorSaque %= notas[i];
+                quantidadeNotas.push(quantidade);
+            }
+
+            var resultado = "Notas Fornecidas:<br>";
+
+            for (var i = 0; i < notas.length; i++) {
+                if (quantidadeNotas[i] > 0) {
+                    resultado += quantidadeNotas[i] +
+                        " nota(s) de R$" + notas[i] + "<br>";
+                }
+            }
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Caixa Eletrônico</h1>
+    <label for="valorSaque">Digite o valor do saque (entre R$10 e R$600):</label>
+    <input type="number" id="valorSaque" min="10" max="600">
+    <br>
+    <button onclick="calcularNotas()">Calcular Notas</button>
+    <br>
+    <p id="resultado"></p>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS</title>
+    <style>
+        .notification {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script type="text/javascript">
+        function verificarLetra() {
+            var letra = document.getElementById("inputLetra").value;
+            var notificationArea = document.getElementById("notificationArea").value;
+
+            if (
+                letra === "a" ||
+                letra === "e" ||
+                letra === "i" ||
+                letra === "o" ||
+                letra === "u" ||
+                letra === "A" ||
+                letra === "E" ||
+                letra === "I" ||
+                letra === "O" ||
+                letra === "U"
+            ) {
+                alert("A letra digitada é uma vogal.")
+            } else {
+                alert("A letra digitada é uma consoante.")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <label for="inputLetra">Digite uma Letra: </label>
+    <input type="text" id="inputLetra">
+    <button onclick="verificarLetra()">Verificar</button>
+    <div id="notificationArea" class="notification"></div>
+</body>
+
+</html>

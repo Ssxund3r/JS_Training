@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Praticando JS</title>
+    <script type="text/javascript">
+        function submitForm() {
+            const form = document.getElementById("crimeForm");
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            let positiveAnswers = 0;
+
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    positiveAnswers++;
+                }
+            });
+
+            let classification = "";
+            if (positiveAnswers === 5) {
+                classification = "Assassino";
+            } else if (positiveAnswers >= 3) {
+                classification = "Cúmplice";
+            } else if (positiveAnswers >= 2) {
+                classification = "Suspeita";
+            } else {
+                classification = "Inocente";
+            }
+
+            const result = document.getElementById("resultado"); // Correção aqui
+            result.textContent = `Classificação: ${classification}`;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Questionário de Crime</h1>
+    <form id="crimeForm">
+        <label>
+            Telefonou para a vítima?
+            <input type="checkbox" name="telefone" />
+        </label>
+        <br />
+        <label>
+            Esteve no local do crime?
+            <input type="checkbox" name="localCrime" />
+        </label>
+        <br />
+        <label>
+            Mora perto da vítima?
+            <input type="checkbox" name="proximo" />
+        </label>
+        <br />
+        <label>
+            Devia para a vítima?
+            <input type="checkbox" name="divida" />
+        </label>
+        <br />
+        <label>
+            Já trabalhou com a vítima?
+            <input type="checkbox" name="trabalhou" />
+        </label>
+        <br />
+        <br />
+        <button type="button" onclick="submitForm()">Enviar</button>
+    </form>
+    <div id="resultado"></div>
+</body>
+
+</html>
