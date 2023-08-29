@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Apostila JavaScript Progressivo</title>
+    <script type="text/javascript">
+        function teste() {
+            var resposta = document.getElementById('resposta');
+            var texto = '';
+            for (var count = 1; count <= 100; count++) {
+                if (count % 4 == 0)
+                    continue;
+                else
+                    texto += count + "-";
+            }
+            resposta.innerHTML = texto;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="teste()">Exibir</button><br />
+    Resultado: <div id="resposta">
+</body>
+
+</html>
